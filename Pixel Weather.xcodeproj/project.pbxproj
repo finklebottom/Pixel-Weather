@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D793D95158E4C6D001A1ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D94158E4C6D001A1ADB /* UIKit.framework */; };
+		2D793D97158E4C6D001A1ADB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D96158E4C6D001A1ADB /* Foundation.framework */; };
+		2D793D99158E4C6D001A1ADB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D98158E4C6D001A1ADB /* CoreGraphics.framework */; };
+		2D793D9B158E4C6D001A1ADB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D9A158E4C6D001A1ADB /* CoreData.framework */; };
+		2D793DA1158E4C6D001A1ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D793D9F158E4C6D001A1ADB /* InfoPlist.strings */; };
+		2D793DA3158E4C6D001A1ADB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DA2158E4C6D001A1ADB /* main.m */; };
+		2D793DA7158E4C6D001A1ADB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DA6158E4C6D001A1ADB /* AppDelegate.m */; };
+		2D793DAA158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */; };
+		2D793DB2158E4C6D001A1ADB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793DB1158E4C6D001A1ADB /* SenTestingKit.framework */; };
+		2D793DB3158E4C6D001A1ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D94158E4C6D001A1ADB /* UIKit.framework */; };
+		2D793DB4158E4C6D001A1ADB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D96158E4C6D001A1ADB /* Foundation.framework */; };
+		2D793DB5158E4C6D001A1ADB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D9A158E4C6D001A1ADB /* CoreData.framework */; };
+		2D793DBD158E4C6E001A1ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D793DBB158E4C6E001A1ADB /* InfoPlist.strings */; };
+		2D793DC0158E4C6E001A1ADB /* Pixel_WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D793DB6158E4C6E001A1ADB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D793D87158E4C6C001A1ADB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D793D8F158E4C6C001A1ADB;
+			remoteInfo = "Pixel Weather";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D793D90158E4C6D001A1ADB /* Pixel Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D793D94158E4C6D001A1ADB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2D793D96158E4C6D001A1ADB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2D793D98158E4C6D001A1ADB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D793D9A158E4C6D001A1ADB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2D793D9E158E4C6D001A1ADB /* Pixel Weather-Info.plist */ = {isa = PBXFileReference; path = "Pixel Weather-Info.plist"; sourceTree = "<group>"; };
+		2D793DA0158E4C6D001A1ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D793DA2158E4C6D001A1ADB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2D793DA4158E4C6D001A1ADB /* Pixel Weather-Prefix.pch */ = {isa = PBXFileReference; path = "Pixel Weather-Prefix.pch"; sourceTree = "<group>"; };
+		2D793DA5158E4C6D001A1ADB /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		2D793DA6158E4C6D001A1ADB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2D793DA9158E4C6D001A1ADB /* Pixel_Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pixel_Weather.xcdatamodel; sourceTree = "<group>"; };
+		2D793DB0158E4C6D001A1ADB /* Pixel WeatherTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pixel WeatherTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D793DB1158E4C6D001A1ADB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2D793DBA158E4C6E001A1ADB /* Pixel WeatherTests-Info.plist */ = {isa = PBXFileReference; path = "Pixel WeatherTests-Info.plist"; sourceTree = "<group>"; };
+		2D793DBC158E4C6E001A1ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D793DBE158E4C6E001A1ADB /* Pixel_WeatherTests.h */ = {isa = PBXFileReference; path = Pixel_WeatherTests.h; sourceTree = "<group>"; };
+		2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixel_WeatherTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D793D8D158E4C6C001A1ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D793D95158E4C6D001A1ADB /* UIKit.framework in Frameworks */,
+				2D793D97158E4C6D001A1ADB /* Foundation.framework in Frameworks */,
+				2D793D99158E4C6D001A1ADB /* CoreGraphics.framework in Frameworks */,
+				2D793D9B158E4C6D001A1ADB /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D793DAC158E4C6D001A1ADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D793DB2158E4C6D001A1ADB /* SenTestingKit.framework in Frameworks */,
+				2D793DB3158E4C6D001A1ADB /* UIKit.framework in Frameworks */,
+				2D793DB4158E4C6D001A1ADB /* Foundation.framework in Frameworks */,
+				2D793DB5158E4C6D001A1ADB /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D793D85158E4C6C001A1ADB = {
+			isa = PBXGroup;
+			children = (
+				2D793D9C158E4C6D001A1ADB /* Pixel Weather */,
+				2D793DB8158E4C6E001A1ADB /* Pixel WeatherTests */,
+				2D793D93158E4C6D001A1ADB /* Frameworks */,
+				2D793D91158E4C6D001A1ADB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D793D91158E4C6D001A1ADB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D793D90158E4C6D001A1ADB /* Pixel Weather.app */,
+				2D793DB0158E4C6D001A1ADB /* Pixel WeatherTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D793D93158E4C6D001A1ADB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D793D94158E4C6D001A1ADB /* UIKit.framework */,
+				2D793D96158E4C6D001A1ADB /* Foundation.framework */,
+				2D793D98158E4C6D001A1ADB /* CoreGraphics.framework */,
+				2D793D9A158E4C6D001A1ADB /* CoreData.framework */,
+				2D793DB1158E4C6D001A1ADB /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D793D9C158E4C6D001A1ADB /* Pixel Weather */ = {
+			isa = PBXGroup;
+			children = (
+				2D793DA5158E4C6D001A1ADB /* AppDelegate.h */,
+				2D793DA6158E4C6D001A1ADB /* AppDelegate.m */,
+				2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */,
+				2D793D9D158E4C6D001A1ADB /* Supporting Files */,
+			);
+			path = "Pixel Weather";
+			sourceTree = "<group>";
+		};
+		2D793D9D158E4C6D001A1ADB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D793D9E158E4C6D001A1ADB /* Pixel Weather-Info.plist */,
+				2D793D9F158E4C6D001A1ADB /* InfoPlist.strings */,
+				2D793DA2158E4C6D001A1ADB /* main.m */,
+				2D793DA4158E4C6D001A1ADB /* Pixel Weather-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D793DB8158E4C6E001A1ADB /* Pixel WeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D793DBE158E4C6E001A1ADB /* Pixel_WeatherTests.h */,
+				2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */,
+				2D793DB9158E4C6E001A1ADB /* Supporting Files */,
+			);
+			path = "Pixel WeatherTests";
+			sourceTree = "<group>";
+		};
+		2D793DB9158E4C6E001A1ADB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D793DBA158E4C6E001A1ADB /* Pixel WeatherTests-Info.plist */,
+				2D793DBB158E4C6E001A1ADB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D793D8F158E4C6C001A1ADB /* Pixel Weather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D793DC3158E4C6E001A1ADB /* Build configuration list for PBXNativeTarget "Pixel Weather" */;
+			buildPhases = (
+				2D793D8C158E4C6C001A1ADB /* Sources */,
+				2D793D8D158E4C6C001A1ADB /* Frameworks */,
+				2D793D8E158E4C6C001A1ADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pixel Weather";
+			productName = "Pixel Weather";
+			productReference = 2D793D90158E4C6D001A1ADB /* Pixel Weather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D793DAF158E4C6D001A1ADB /* Pixel WeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D793DC6158E4C6E001A1ADB /* Build configuration list for PBXNativeTarget "Pixel WeatherTests" */;
+			buildPhases = (
+				2D793DAB158E4C6D001A1ADB /* Sources */,
+				2D793DAC158E4C6D001A1ADB /* Frameworks */,
+				2D793DAD158E4C6D001A1ADB /* Resources */,
+				2D793DAE158E4C6D001A1ADB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D793DB7158E4C6E001A1ADB /* PBXTargetDependency */,
+			);
+			name = "Pixel WeatherTests";
+			productName = "Pixel WeatherTests";
+			productReference = 2D793DB0158E4C6D001A1ADB /* Pixel WeatherTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D793D87158E4C6C001A1ADB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "colin gleeson";
+			};
+			buildConfigurationList = 2D793D8A158E4C6C001A1ADB /* Build configuration list for PBXProject "Pixel Weather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D793D85158E4C6C001A1ADB;
+			productRefGroup = 2D793D91158E4C6D001A1ADB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D793D8F158E4C6C001A1ADB /* Pixel Weather */,
+				2D793DAF158E4C6D001A1ADB /* Pixel WeatherTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D793D8E158E4C6C001A1ADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D793DA1158E4C6D001A1ADB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D793DAD158E4C6D001A1ADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D793DBD158E4C6E001A1ADB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D793DAE158E4C6D001A1ADB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D793D8C158E4C6C001A1ADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D793DA3158E4C6D001A1ADB /* main.m in Sources */,
+				2D793DA7158E4C6D001A1ADB /* AppDelegate.m in Sources */,
+				2D793DAA158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D793DAB158E4C6D001A1ADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D793DC0158E4C6E001A1ADB /* Pixel_WeatherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D793DB7158E4C6E001A1ADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D793D8F158E4C6C001A1ADB /* Pixel Weather */;
+			targetProxy = 2D793DB6158E4C6E001A1ADB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D793D9F158E4C6D001A1ADB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D793DA0158E4C6D001A1ADB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2D793DBB158E4C6E001A1ADB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D793DBC158E4C6E001A1ADB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D793DC1158E4C6E001A1ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		2D793DC2158E4C6E001A1ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D793DC4158E4C6E001A1ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
+				INFOPLIST_FILE = "Pixel Weather/Pixel Weather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2D793DC5158E4C6E001A1ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
+				INFOPLIST_FILE = "Pixel Weather/Pixel Weather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2D793DC7158E4C6E001A1ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pixel Weather.app/Pixel Weather";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
+				INFOPLIST_FILE = "Pixel WeatherTests/Pixel WeatherTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2D793DC8158E4C6E001A1ADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pixel Weather.app/Pixel Weather";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
+				INFOPLIST_FILE = "Pixel WeatherTests/Pixel WeatherTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D793D8A158E4C6C001A1ADB /* Build configuration list for PBXProject "Pixel Weather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D793DC1158E4C6E001A1ADB /* Debug */,
+				2D793DC2158E4C6E001A1ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D793DC3158E4C6E001A1ADB /* Build configuration list for PBXNativeTarget "Pixel Weather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D793DC4158E4C6E001A1ADB /* Debug */,
+				2D793DC5158E4C6E001A1ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2D793DC6158E4C6E001A1ADB /* Build configuration list for PBXNativeTarget "Pixel WeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D793DC7158E4C6E001A1ADB /* Debug */,
+				2D793DC8158E4C6E001A1ADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D793DA9158E4C6D001A1ADB /* Pixel_Weather.xcdatamodel */,
+			);
+			currentVersion = 2D793DA9158E4C6D001A1ADB /* Pixel_Weather.xcdatamodel */;
+			path = Pixel_Weather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2D793D87158E4C6C001A1ADB /* Project object */;
+}
