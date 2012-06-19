@@ -13,7 +13,6 @@
 		2D793D9B158E4C6D001A1ADB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D9A158E4C6D001A1ADB /* CoreData.framework */; };
 		2D793DA1158E4C6D001A1ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D793D9F158E4C6D001A1ADB /* InfoPlist.strings */; };
 		2D793DA3158E4C6D001A1ADB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DA2158E4C6D001A1ADB /* main.m */; };
-		2D793DA7158E4C6D001A1ADB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DA6158E4C6D001A1ADB /* AppDelegate.m */; };
 		2D793DAA158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */; };
 		2D793DB2158E4C6D001A1ADB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793DB1158E4C6D001A1ADB /* SenTestingKit.framework */; };
 		2D793DB3158E4C6D001A1ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D94158E4C6D001A1ADB /* UIKit.framework */; };
@@ -21,6 +20,10 @@
 		2D793DB5158E4C6D001A1ADB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D9A158E4C6D001A1ADB /* CoreData.framework */; };
 		2D793DBD158E4C6E001A1ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D793DBB158E4C6E001A1ADB /* InfoPlist.strings */; };
 		2D793DC0158E4C6E001A1ADB /* Pixel_WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */; };
+		2D793DD0158E623F001A1ADB /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DCF158E623F001A1ADB /* LoadingController.m */; };
+		2D9BB23B158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */; };
+		2D9BB23C158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */; };
+		2DF95DF0158E660C0067C439 /* PixelWeatherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,19 +42,22 @@
 		2D793D96158E4C6D001A1ADB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D793D98158E4C6D001A1ADB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2D793D9A158E4C6D001A1ADB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2D793D9E158E4C6D001A1ADB /* Pixel Weather-Info.plist */ = {isa = PBXFileReference; path = "Pixel Weather-Info.plist"; sourceTree = "<group>"; };
+		2D793D9E158E4C6D001A1ADB /* Pixel Weather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pixel Weather-Info.plist"; sourceTree = "<group>"; };
 		2D793DA0158E4C6D001A1ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D793DA2158E4C6D001A1ADB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D793DA4158E4C6D001A1ADB /* Pixel Weather-Prefix.pch */ = {isa = PBXFileReference; path = "Pixel Weather-Prefix.pch"; sourceTree = "<group>"; };
-		2D793DA5158E4C6D001A1ADB /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		2D793DA6158E4C6D001A1ADB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2D793DA4158E4C6D001A1ADB /* Pixel Weather-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pixel Weather-Prefix.pch"; sourceTree = "<group>"; };
 		2D793DA9158E4C6D001A1ADB /* Pixel_Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pixel_Weather.xcdatamodel; sourceTree = "<group>"; };
 		2D793DB0158E4C6D001A1ADB /* Pixel WeatherTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pixel WeatherTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D793DB1158E4C6D001A1ADB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2D793DBA158E4C6E001A1ADB /* Pixel WeatherTests-Info.plist */ = {isa = PBXFileReference; path = "Pixel WeatherTests-Info.plist"; sourceTree = "<group>"; };
+		2D793DBA158E4C6E001A1ADB /* Pixel WeatherTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pixel WeatherTests-Info.plist"; sourceTree = "<group>"; };
 		2D793DBC158E4C6E001A1ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2D793DBE158E4C6E001A1ADB /* Pixel_WeatherTests.h */ = {isa = PBXFileReference; path = Pixel_WeatherTests.h; sourceTree = "<group>"; };
+		2D793DBE158E4C6E001A1ADB /* Pixel_WeatherTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pixel_WeatherTests.h; sourceTree = "<group>"; };
 		2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixel_WeatherTests.m; sourceTree = "<group>"; };
+		2D793DCE158E623F001A1ADB /* LoadingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingController.h; sourceTree = "<group>"; };
+		2D793DCF158E623F001A1ADB /* LoadingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingController.m; sourceTree = "<group>"; };
+		2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alterebro-pixel-font.ttf"; sourceTree = "<group>"; };
+		2DF95DEE158E660C0067C439 /* PixelWeatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelWeatherAppDelegate.h; sourceTree = "<group>"; };
+		2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelWeatherAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +120,13 @@
 		2D793D9C158E4C6D001A1ADB /* Pixel Weather */ = {
 			isa = PBXGroup;
 			children = (
-				2D793DA5158E4C6D001A1ADB /* AppDelegate.h */,
-				2D793DA6158E4C6D001A1ADB /* AppDelegate.m */,
+				2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */,
 				2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */,
+				2D793DCE158E623F001A1ADB /* LoadingController.h */,
+				2D793DCF158E623F001A1ADB /* LoadingController.m */,
+				2DF95DEE158E660C0067C439 /* PixelWeatherAppDelegate.h */,
+				2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */,
+				2D793DA2158E4C6D001A1ADB /* main.m */,
 				2D793D9D158E4C6D001A1ADB /* Supporting Files */,
 			);
 			path = "Pixel Weather";
@@ -127,7 +137,6 @@
 			children = (
 				2D793D9E158E4C6D001A1ADB /* Pixel Weather-Info.plist */,
 				2D793D9F158E4C6D001A1ADB /* InfoPlist.strings */,
-				2D793DA2158E4C6D001A1ADB /* main.m */,
 				2D793DA4158E4C6D001A1ADB /* Pixel Weather-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -224,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D793DA1158E4C6D001A1ADB /* InfoPlist.strings in Resources */,
+				2D9BB23B158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D793DBD158E4C6E001A1ADB /* InfoPlist.strings in Resources */,
+				2D9BB23C158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D793DA3158E4C6D001A1ADB /* main.m in Sources */,
-				2D793DA7158E4C6D001A1ADB /* AppDelegate.m in Sources */,
 				2D793DAA158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld in Sources */,
+				2D793DD0158E623F001A1ADB /* LoadingController.m in Sources */,
+				2DF95DF0158E660C0067C439 /* PixelWeatherAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +368,7 @@
 				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
 				INFOPLIST_FILE = "Pixel Weather/Pixel Weather-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -367,6 +380,7 @@
 				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
 				INFOPLIST_FILE = "Pixel Weather/Pixel Weather-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -424,6 +438,7 @@
 				2D793DC5158E4C6E001A1ADB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D793DC6158E4C6E001A1ADB /* Build configuration list for PBXNativeTarget "Pixel WeatherTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +447,7 @@
 				2D793DC8158E4C6E001A1ADB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
