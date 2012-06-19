@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D04B24815901396006A1114 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D04B24715901396006A1114 /* CFNetwork.framework */; };
+		2D04B253159016A5006A1114 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D04B252159016A5006A1114 /* SystemConfiguration.framework */; };
+		2D04B25B15902359006A1114 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D04B25A15902359006A1114 /* CoreLocation.framework */; };
+		2D04B25E15902397006A1114 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D04B25D15902397006A1114 /* LocationHandler.m */; };
+		2D3C670D159007AA00082F80 /* NetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3C670C159007AA00082F80 /* NetworkHandler.m */; };
 		2D793D95158E4C6D001A1ADB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D94158E4C6D001A1ADB /* UIKit.framework */; };
 		2D793D97158E4C6D001A1ADB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D96158E4C6D001A1ADB /* Foundation.framework */; };
 		2D793D99158E4C6D001A1ADB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D793D98158E4C6D001A1ADB /* CoreGraphics.framework */; };
@@ -37,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D04B24715901396006A1114 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFNetwork.framework; sourceTree = "<group>"; };
+		2D04B252159016A5006A1114 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2D04B25A15902359006A1114 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2D04B25C15902397006A1114 /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHandler.h; sourceTree = "<group>"; };
+		2D04B25D15902397006A1114 /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
+		2D3C670B159007AA00082F80 /* NetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHandler.h; sourceTree = "<group>"; };
+		2D3C670C159007AA00082F80 /* NetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHandler.m; sourceTree = "<group>"; };
 		2D793D90158E4C6D001A1ADB /* Pixel Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D793D94158E4C6D001A1ADB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D793D96158E4C6D001A1ADB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,10 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D04B25B15902359006A1114 /* CoreLocation.framework in Frameworks */,
+				2D04B253159016A5006A1114 /* SystemConfiguration.framework in Frameworks */,
 				2D793D95158E4C6D001A1ADB /* UIKit.framework in Frameworks */,
 				2D793D97158E4C6D001A1ADB /* Foundation.framework in Frameworks */,
 				2D793D99158E4C6D001A1ADB /* CoreGraphics.framework in Frameworks */,
 				2D793D9B158E4C6D001A1ADB /* CoreData.framework in Frameworks */,
+				2D04B24815901396006A1114 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +123,9 @@
 		2D793D93158E4C6D001A1ADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D04B25A15902359006A1114 /* CoreLocation.framework */,
+				2D04B252159016A5006A1114 /* SystemConfiguration.framework */,
+				2D04B24715901396006A1114 /* CFNetwork.framework */,
 				2D793D94158E4C6D001A1ADB /* UIKit.framework */,
 				2D793D96158E4C6D001A1ADB /* Foundation.framework */,
 				2D793D98158E4C6D001A1ADB /* CoreGraphics.framework */,
@@ -124,6 +142,10 @@
 				2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */,
 				2D793DCE158E623F001A1ADB /* LoadingController.h */,
 				2D793DCF158E623F001A1ADB /* LoadingController.m */,
+				2D3C670B159007AA00082F80 /* NetworkHandler.h */,
+				2D3C670C159007AA00082F80 /* NetworkHandler.m */,
+				2D04B25C15902397006A1114 /* LocationHandler.h */,
+				2D04B25D15902397006A1114 /* LocationHandler.m */,
 				2DF95DEE158E660C0067C439 /* PixelWeatherAppDelegate.h */,
 				2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */,
 				2D793DA2158E4C6D001A1ADB /* main.m */,
@@ -273,6 +295,8 @@
 				2D793DAA158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld in Sources */,
 				2D793DD0158E623F001A1ADB /* LoadingController.m in Sources */,
 				2DF95DF0158E660C0067C439 /* PixelWeatherAppDelegate.m in Sources */,
+				2D3C670D159007AA00082F80 /* NetworkHandler.m in Sources */,
+				2D04B25E15902397006A1114 /* LocationHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +388,10 @@
 		2D793DC4158E4C6E001A1ADB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
 				INFOPLIST_FILE = "Pixel Weather/Pixel Weather-Info.plist";
@@ -376,6 +404,10 @@
 		2D793DC5158E4C6E001A1ADB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pixel Weather/Pixel Weather-Prefix.pch";
 				INFOPLIST_FILE = "Pixel Weather/Pixel Weather-Info.plist";

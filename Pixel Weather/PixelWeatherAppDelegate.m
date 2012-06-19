@@ -22,4 +22,11 @@
     
 }
 
+//
+-(void) applicationWillResignActive:(UIApplication *)application
+{
+    // Exit app when put in background
+    exit(0);
+}
+
 @end

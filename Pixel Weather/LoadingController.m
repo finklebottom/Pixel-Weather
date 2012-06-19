@@ -10,6 +10,8 @@
 
 @implementation LoadingController
 
+#define SITE @"www.google.com"
+
 - (void) loadView
 {
     // Create the view
@@ -21,6 +23,12 @@
     dosHeight = 20;
     
     UIDevice *device = [UIDevice currentDevice];
+    
+    // get our physical location
+    locationGetter = [[LocationGetter alloc] init];
+    [locationGetter setDelegate:self];
+    [locationGetter startUpdates];
+    
     
     // Loading text
     loadingText = [[UILabel alloc] initWithFrame:CGRectMake(0 , 400, 320, 20)];
@@ -38,6 +46,36 @@
     deviceInfo.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:20];
     
     
+    // Connection Info
+    connectionInfo = [[UILabel alloc] initWithFrame:CGRectMake(0 , 400, 320, 20)];
+    connectionInfo.text = [[@"Connection Type " stringByAppendingString:@" > "] stringByAppendingString:
+                           ([UIDevice cellularConnected] ? @"Celluar" :
+                           ([UIDevice wiFiConnected] ? @"WiFi":@"No connection"))
+                           ];
+    connectionInfo.textColor = [UIColor greenColor];
+    connectionInfo.backgroundColor = [UIColor blackColor];
+    connectionInfo.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:20];
+    
+    // Site Available
+    siteAvailable = [[UILabel alloc] initWithFrame:CGRectMake(0 , 400, 320, 20)];
+    siteAvailable.text = [[@"Google connectivity " stringByAppendingString:@" > "] stringByAppendingString:
+                           ([UIDevice hostAvailable:SITE] ? @"available" : @"not available")
+                           ];
+    siteAvailable.textColor = [UIColor greenColor];
+    siteAvailable.backgroundColor = [UIColor blackColor];
+    siteAvailable.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:20];
+    
+    // Location Info
+    locationInfo = [[UILabel alloc] initWithFrame:CGRectMake(0 , 400, 320, 20)];
+    locationInfo.text = [NSString stringWithFormat:@"Found physical location.  %f %f", lastKnownLocation.coordinate.latitude, lastKnownLocation.coordinate.longitude];
+    locationInfo.textColor = [UIColor greenColor];
+    locationInfo.backgroundColor = [UIColor blackColor];
+    locationInfo.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:20];
+    
+    
+    
+    
+    
     // Add item(s) to content view
     [self.view addSubview:loadingText];
     
@@ -48,6 +86,17 @@
     // Add timer to mock DOS lag
     [NSTimer scheduledTimerWithTimeInterval: 0.50f target:self
                                    selector:@selector(handleTimer_050:) userInfo:nil repeats:YES];
+    
+}
+
+- (void)newPhysicalLocation:(CLLocation *)location {
+    
+     //NSLog(@"newPhysicalLocation %f", location.coordinate.latitude);
+    
+    // Store for later use
+    lastKnownLocation = location;
+    
+    locationInfo.text = [NSString stringWithFormat:@"Device latitude longitude >  %f %f", lastKnownLocation.coordinate.latitude, lastKnownLocation.coordinate.longitude];
     
 }
 
@@ -90,6 +139,76 @@
                        deviceInfo.frame.origin.y - dosHeight,
                        deviceInfo.frame.size.width,
                        deviceInfo.frame.size.height);
+            [self.view addSubview:connectionInfo];
+            break;
+            
+        case 3:
+            loadingText.frame =
+            CGRectMake(loadingText.frame.origin.x,
+                       loadingText.frame.origin.y - dosHeight,
+                       loadingText.frame.size.width,
+                       loadingText.frame.size.height);
+            deviceInfo.frame =
+            CGRectMake(deviceInfo.frame.origin.x,
+                       deviceInfo.frame.origin.y - dosHeight,
+                       deviceInfo.frame.size.width,
+                       deviceInfo.frame.size.height);
+            connectionInfo.frame =
+            CGRectMake(connectionInfo.frame.origin.x,
+                       connectionInfo.frame.origin.y - dosHeight,
+                       connectionInfo.frame.size.width,
+                       connectionInfo.frame.size.height);
+            [self.view addSubview:siteAvailable];
+            break;
+        case 4:
+            loadingText.frame =
+            CGRectMake(loadingText.frame.origin.x,
+                       loadingText.frame.origin.y - dosHeight,
+                       loadingText.frame.size.width,
+                       loadingText.frame.size.height);
+            deviceInfo.frame =
+            CGRectMake(deviceInfo.frame.origin.x,
+                       deviceInfo.frame.origin.y - dosHeight,
+                       deviceInfo.frame.size.width,
+                       deviceInfo.frame.size.height);
+            connectionInfo.frame =
+            CGRectMake(connectionInfo.frame.origin.x,
+                       connectionInfo.frame.origin.y - dosHeight,
+                       connectionInfo.frame.size.width,
+                       connectionInfo.frame.size.height);
+            siteAvailable.frame =
+            CGRectMake(siteAvailable.frame.origin.x,
+                       siteAvailable.frame.origin.y - dosHeight,
+                       siteAvailable.frame.size.width,
+                       siteAvailable.frame.size.height);
+            [self.view addSubview:locationInfo];
+            break;
+        case 5:
+            loadingText.frame =
+            CGRectMake(loadingText.frame.origin.x,
+                       loadingText.frame.origin.y - dosHeight,
+                       loadingText.frame.size.width,
+                       loadingText.frame.size.height);
+            deviceInfo.frame =
+            CGRectMake(deviceInfo.frame.origin.x,
+                       deviceInfo.frame.origin.y - dosHeight,
+                       deviceInfo.frame.size.width,
+                       deviceInfo.frame.size.height);
+            connectionInfo.frame =
+            CGRectMake(connectionInfo.frame.origin.x,
+                       connectionInfo.frame.origin.y - dosHeight,
+                       connectionInfo.frame.size.width,
+                       connectionInfo.frame.size.height);
+            siteAvailable.frame =
+            CGRectMake(siteAvailable.frame.origin.x,
+                       siteAvailable.frame.origin.y - dosHeight,
+                       siteAvailable.frame.size.width,
+                       siteAvailable.frame.size.height);
+            locationInfo.frame =
+            CGRectMake(locationInfo.frame.origin.x,
+                       locationInfo.frame.origin.y - dosHeight,
+                       locationInfo.frame.size.width,
+                       locationInfo.frame.size.height);
             break;
             
         default:
@@ -97,8 +216,8 @@
     }
     
     
-    
-    
 }
+
+
 
 @end

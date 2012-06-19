@@ -8,19 +8,28 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "NetworkHandler.h"
+#import "LocationHandler.h"
 
 
-@interface LoadingController : UIViewController
+
+@interface LoadingController : UIViewController <LocationGetterDelegate>
 {
 
     UILabel *loadingText;
     UILabel *deviceInfo;
-    
+    UILabel *connectionInfo;
+    UILabel *siteAvailable;
+    UILabel *locationInfo;
     
     
     int displayCount;
     int dosHeight;
+    
+    CLLocation *lastKnownLocation;
+    LocationGetter *locationGetter;
 
 }
+
 
 @end
