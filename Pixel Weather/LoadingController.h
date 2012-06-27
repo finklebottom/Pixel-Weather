@@ -10,17 +10,24 @@
 #import <UIKit/UIKit.h>
 #import "NetworkHandler.h"
 #import "LocationHandler.h"
+#import "WeatherViewController.h"
 
 
 
 @interface LoadingController : UIViewController <LocationGetterDelegate>
 {
+    
+    UIWindow			*window;
+    UITabBarController  *tabHome;
+    WeatherViewController *viewController1, *viewController2, *viewController3;
 
     UILabel *loadingText;
     UILabel *deviceInfo;
     UILabel *connectionInfo;
     UILabel *siteAvailable;
     UILabel *locationInfo;
+    UILabel *weatherFromInfo;
+    
     
     
     int displayCount;

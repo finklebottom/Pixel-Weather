@@ -14,6 +14,9 @@
 
 - (void) loadView
 {
+    //
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen  mainScreen] bounds]] ;
+    
     // Create the view
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] ];
     self.view.backgroundColor = [UIColor blackColor];
@@ -73,6 +76,12 @@
     locationInfo.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:20];
     
     
+    // Location Info
+    weatherFromInfo = [[UILabel alloc] initWithFrame:CGRectMake(0 , 400, 320, 20)];
+    weatherFromInfo.text = [NSString stringWithFormat:@"Source > Weather Underground"];
+    weatherFromInfo.textColor = [UIColor greenColor];
+    weatherFromInfo.backgroundColor = [UIColor blackColor];
+    weatherFromInfo.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:20];
     
     
     
@@ -80,11 +89,11 @@
     [self.view addSubview:loadingText];
     
     // Add timer to handle loading... dots
-    [NSTimer scheduledTimerWithTimeInterval: 0.25f target:self
+    [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self
                                    selector:@selector(handleTimer_025:) userInfo:nil repeats:YES];
     
     // Add timer to mock DOS lag
-    [NSTimer scheduledTimerWithTimeInterval: 0.50f target:self
+    [NSTimer scheduledTimerWithTimeInterval: 0.2f target:self
                                    selector:@selector(handleTimer_050:) userInfo:nil repeats:YES];
     
 }
@@ -209,12 +218,75 @@
                        locationInfo.frame.origin.y - dosHeight,
                        locationInfo.frame.size.width,
                        locationInfo.frame.size.height);
+            [self.view addSubview:weatherFromInfo];
+            break;
+        case 6:
+            loadingText.frame =
+            CGRectMake(loadingText.frame.origin.x,
+                       loadingText.frame.origin.y - dosHeight,
+                       loadingText.frame.size.width,
+                       loadingText.frame.size.height);
+            deviceInfo.frame =
+            CGRectMake(deviceInfo.frame.origin.x,
+                       deviceInfo.frame.origin.y - dosHeight,
+                       deviceInfo.frame.size.width,
+                       deviceInfo.frame.size.height);
+            connectionInfo.frame =
+            CGRectMake(connectionInfo.frame.origin.x,
+                       connectionInfo.frame.origin.y - dosHeight,
+                       connectionInfo.frame.size.width,
+                       connectionInfo.frame.size.height);
+            siteAvailable.frame =
+            CGRectMake(siteAvailable.frame.origin.x,
+                       siteAvailable.frame.origin.y - dosHeight,
+                       siteAvailable.frame.size.width,
+                       siteAvailable.frame.size.height);
+            locationInfo.frame =
+            CGRectMake(locationInfo.frame.origin.x,
+                       locationInfo.frame.origin.y - dosHeight,
+                       locationInfo.frame.size.width,
+                       locationInfo.frame.size.height);
+            weatherFromInfo.frame =
+            CGRectMake(weatherFromInfo.frame.origin.x,
+                       weatherFromInfo.frame.origin.y - dosHeight,
+                       weatherFromInfo.frame.size.width,
+                       weatherFromInfo.frame.size.height);
             break;
             
         default:
             break;
     }
     
+    if(displayCount == 8)
+    {
+        // Load next view
+        [self loadNextView];
+    
+    }
+    
+    
+}
+
+- (void) loadNextView
+{
+    viewController1 = [[WeatherViewController alloc] initWithMessage:@"Current Location Weather"
+                                                           withColor:[UIColor colorWithRed:135.0/255 green:206.0/255 blue:250.0/255 alpha:1.0]];
+	viewController1.title =  @"@@";
+	viewController2 = [[WeatherViewController alloc] initWithMessage:@"Hourly Weather"
+                                                           withColor:[UIColor blueColor]];
+	viewController2.title =  @"HH";
+	viewController3 = [[WeatherViewController alloc] initWithMessage:@"Daily Weather"
+                                                           withColor:[UIColor yellowColor]];
+	viewController3.title =  @"DD";
+	tabHome = [[UITabBarController alloc] init];
+	tabHome.viewControllers = [NSArray arrayWithObjects:
+										viewController1,
+										viewController2, 
+										viewController3,
+										nil];
+	[window addSubview:tabHome.view];	
+	[window makeKeyAndVisible];
+
     
 }
 

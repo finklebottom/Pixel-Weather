@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Pixel Weather/LoadingController.m"
-         timestampString = "361770068.473518"
+         timestampString = "362178191.603434"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
