@@ -24,6 +24,7 @@
     UILabel *cityLabel;
     UILabel *timeStamp;
     
+    
 }
 
 @property(nonatomic, retain) WeatherViewController* myController;

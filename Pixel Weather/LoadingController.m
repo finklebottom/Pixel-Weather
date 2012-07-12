@@ -269,19 +269,16 @@
 
 - (void) loadNextView
 {
-    viewController1 = [[WeatherViewController alloc] initWithMessage:@"Current Location Weather"
+    viewController1 = [[WeatherViewController alloc] initWithMessage:@"Current"
                                                            withColor:[UIColor colorWithRed:135.0/255 green:206.0/255 blue:250.0/255 alpha:1.0]];
-	viewController1.title =  @"@@";
-	viewController2 = [[WeatherViewController alloc] initWithMessage:@"Hourly Weather"
-                                                           withColor:[UIColor blueColor]];
-	viewController2.title =  @"HH";
-	viewController3 = [[WeatherViewController alloc] initWithMessage:@"Daily Weather"
+	viewController1.title =  @"Current";
+    
+	viewController3 = [[WeatherViewController alloc] initWithMessage:@"Forecast"
                                                            withColor:[UIColor yellowColor]];
-	viewController3.title =  @"DD";
+	viewController3.title =  @"Forecast";
 	tabHome = [[UITabBarController alloc] init];
 	tabHome.viewControllers = [NSArray arrayWithObjects:
 										viewController1,
-										viewController2, 
 										viewController3,
 										nil];
 	[window addSubview:tabHome.view];	

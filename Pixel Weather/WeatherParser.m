@@ -11,12 +11,14 @@
 
 @implementation WeatherParser
 
-@synthesize elementDictionary,objectAttributes,object,currentTemp, condition, conditionImageURL, location, lowTemp, highTemp;
+@synthesize elementDictionary,objectAttributes,object,currentTemp, condition, conditionImageURL, location, lowTemp, highTemp, datee, qpf, snow, high, low, cond, wind;
 
 - (WeatherParser *)initWithQuery:(NSString *)query
 {
     if (self = [super init])
     {
+
+        
         CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/q/Canada/%@.xml", query]] options:0 error:nil];
         
         currentTemp         = [[[parser nodesForXPath:@"/response/current_observation/temp_c" error:nil] objectAtIndex:0] stringValue];
@@ -34,10 +36,75 @@
     return self;
 }
 
-- (WeatherParser *)fullParseWithQuery:(NSString *)query
+- (void)parseWithQuery:(NSString *)query
+{
+    
+        CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/q/Canada/%@.xml", query]] options:0 error:nil];
+        
+        NSArray *nodes = [parser nodesForXPath:@"/response/forecast/simpleforecast/forecastdays/forecastday/date" error:nil];
+        
+        for (CXMLElement *node in nodes)
+        {
+            NSString *dateCombo;
+            
+            NSArray *weekday = [node elementsForName:@"weekday"];
+            for (CXMLElement *idd in weekday)
+            {
+                dateCombo = idd.stringValue;
+                break;
+            }
+            
+            dateCombo = [dateCombo stringByAppendingString:@" ("];
+            
+            NSArray *month = [node elementsForName:@"month"];
+            for (CXMLElement *idd in month)
+            {
+                dateCombo = [dateCombo stringByAppendingString:idd.stringValue];
+                break;
+            }
+            
+            dateCombo = [dateCombo stringByAppendingString:@"/"];
+            
+            NSArray *day = [node elementsForName:@"day"];
+            for (CXMLElement *idd in day)
+            {
+                dateCombo = [dateCombo stringByAppendingString:idd.stringValue];
+                break;
+            }
+            
+            dateCombo = [dateCombo stringByAppendingString:@"/"];
+            
+            NSArray *year = [node elementsForName:@"year"];
+            for (CXMLElement *idd in year)
+            {
+                dateCombo = [dateCombo stringByAppendingString:idd.stringValue];
+                break;
+            }
+            
+            dateCombo = [dateCombo stringByAppendingString:@")"];
+            
+            //NSLog(dateCombo);
+            [self.datee  addObject:dateCombo];
+            
+            
+        }
+        
+    
+
+}
+
+- (WeatherParser *)fullParseWithQuery:(NSString *)query path:(NSString *)nodePath
 {
     if (self == [super init])
     {
+        
+        datee =[[NSMutableArray alloc] init];
+        qpf =[[NSMutableArray alloc] init];
+        snow =[[NSMutableArray alloc] init];
+        high =[[NSMutableArray alloc] init];
+        low =[[NSMutableArray alloc] init];
+        cond =[[NSMutableArray alloc] init];
+        wind =[[NSMutableArray alloc] init];
 
     
         NSMutableArray *ar=[[NSMutableArray alloc] init];
@@ -45,7 +112,7 @@
         CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/q/Canada/%@.xml", query]] options:0 error:nil];
         
         NSArray *nodes = nil;
-        nodes = [parser nodesForXPath:@"/response/current_observation" error:nil];
+        nodes = [parser nodesForXPath:nodePath error:nil];
         
         NSString *strValue;
         NSString *strName;
@@ -137,6 +204,8 @@
         
     
     }
+    
+    [self parseWithQuery:query];
     
     return self;
 }

@@ -42,6 +42,7 @@
 		2D793DBD158E4C6E001A1ADB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D793DBB158E4C6E001A1ADB /* InfoPlist.strings */; };
 		2D793DC0158E4C6E001A1ADB /* Pixel_WeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */; };
 		2D793DD0158E623F001A1ADB /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D793DCF158E623F001A1ADB /* LoadingController.m */; };
+		2D9807D315AE8BE500A99DDE /* WeatherTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9807D215AE8BE400A99DDE /* WeatherTable.m */; };
 		2D9BB23B158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */; };
 		2D9BB23C158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */; };
 		2DF95DF0158E660C0067C439 /* PixelWeatherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */; };
@@ -116,6 +117,8 @@
 		2D793DBF158E4C6E001A1ADB /* Pixel_WeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixel_WeatherTests.m; sourceTree = "<group>"; };
 		2D793DCE158E623F001A1ADB /* LoadingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingController.h; sourceTree = "<group>"; };
 		2D793DCF158E623F001A1ADB /* LoadingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingController.m; sourceTree = "<group>"; };
+		2D9807D115AE8BE400A99DDE /* WeatherTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTable.h; sourceTree = "<group>"; };
+		2D9807D215AE8BE400A99DDE /* WeatherTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTable.m; sourceTree = "<group>"; };
 		2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alterebro-pixel-font.ttf"; sourceTree = "<group>"; };
 		2DF95DEE158E660C0067C439 /* PixelWeatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelWeatherAppDelegate.h; sourceTree = "<group>"; };
 		2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelWeatherAppDelegate.m; sourceTree = "<group>"; };
@@ -237,20 +240,11 @@
 		2D793D9C158E4C6D001A1ADB /* Pixel Weather */ = {
 			isa = PBXGroup;
 			children = (
+				2D9807CC15AE222000A99DDE /* UI */,
 				2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */,
+				2D9807CF15AE227500A99DDE /* Device */,
 				2D793DA8158E4C6D001A1ADB /* Pixel_Weather.xcdatamodeld */,
-				2D793DCE158E623F001A1ADB /* LoadingController.h */,
-				2D793DCF158E623F001A1ADB /* LoadingController.m */,
-				2D28C67215966BF6007CBDD3 /* WeatherParser.h */,
-				2D28C67315966BF7007CBDD3 /* WeatherParser.m */,
-				2D28C66C159660CE007CBDD3 /* WeatherViewController.h */,
-				2D28C66D159660CE007CBDD3 /* WeatherViewController.m */,
-				2D28C66F1596618E007CBDD3 /* WeatherView.h */,
-				2D28C6701596618F007CBDD3 /* WeatherView.m */,
-				2D3C670B159007AA00082F80 /* NetworkHandler.h */,
-				2D3C670C159007AA00082F80 /* NetworkHandler.m */,
-				2D04B25C15902397006A1114 /* LocationHandler.h */,
-				2D04B25D15902397006A1114 /* LocationHandler.m */,
+				2D9807D015AE229700A99DDE /* Parser */,
 				2DF95DEE158E660C0067C439 /* PixelWeatherAppDelegate.h */,
 				2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */,
 				2D793DA2158E4C6D001A1ADB /* main.m */,
@@ -287,6 +281,41 @@
 				2D793DBB158E4C6E001A1ADB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D9807CC15AE222000A99DDE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2D793DCE158E623F001A1ADB /* LoadingController.h */,
+				2D793DCF158E623F001A1ADB /* LoadingController.m */,
+				2D28C66C159660CE007CBDD3 /* WeatherViewController.h */,
+				2D28C66D159660CE007CBDD3 /* WeatherViewController.m */,
+				2D28C66F1596618E007CBDD3 /* WeatherView.h */,
+				2D28C6701596618F007CBDD3 /* WeatherView.m */,
+				2D9807D115AE8BE400A99DDE /* WeatherTable.h */,
+				2D9807D215AE8BE400A99DDE /* WeatherTable.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		2D9807CF15AE227500A99DDE /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				2D3C670B159007AA00082F80 /* NetworkHandler.h */,
+				2D3C670C159007AA00082F80 /* NetworkHandler.m */,
+				2D04B25C15902397006A1114 /* LocationHandler.h */,
+				2D04B25D15902397006A1114 /* LocationHandler.m */,
+			);
+			name = Device;
+			sourceTree = "<group>";
+		};
+		2D9807D015AE229700A99DDE /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				2D28C67215966BF6007CBDD3 /* WeatherParser.h */,
+				2D28C67315966BF7007CBDD3 /* WeatherParser.m */,
+			);
+			name = Parser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +448,7 @@
 				2D28C66E159660CF007CBDD3 /* WeatherViewController.m in Sources */,
 				2D28C6711596618F007CBDD3 /* WeatherView.m in Sources */,
 				2D28C67415966BF7007CBDD3 /* WeatherParser.m in Sources */,
+				2D9807D315AE8BE500A99DDE /* WeatherTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

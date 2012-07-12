@@ -8,18 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "WeatherView.h"
+#import "WeatherTable.h"
 #import "WeatherParser.h"
 
 @class WeatherView;
+@class WeatherTable;
 
 @interface WeatherViewController : UIViewController
 {
     WeatherView *theView;
+    WeatherTable *tableView;
     
 	NSString    *message;
     UIColor     *color;
     
-    NSMutableDictionary *objects;
+    NSMutableDictionary *objects, *objectForecast;
     
     NSDateFormatter *dateFormatter;
     
@@ -28,13 +31,18 @@
 
 @property (nonatomic, retain) NSString *message;
 @property (nonatomic, retain) UIColor *color;
-@property (nonatomic, retain) NSMutableDictionary *objects;
+@property (nonatomic, retain) NSMutableDictionary *objects;  
+@property (nonatomic, retain) NSMutableDictionary *objectForecast;
 
 - (id)initWithMessage:(NSString *)theMessage withColor:(UIColor *)color;
 - (void) loadWeather;
 - (void) showWeatherFor:(NSString *)query;
-- (void) updateUI:(WeatherParser *)weather;
+- (void) updateUI:(WeatherParser *)weather ;
 - (NSString *)getStringAtLocation:(NSString *)str atPosition:(int) x;
+- (void)showWeatherForecast:(NSString *)query;
+- (void)updateUIForecast:(WeatherParser *)weather;
+- (void) loadWeatherForecast;
+
 
 
 @end

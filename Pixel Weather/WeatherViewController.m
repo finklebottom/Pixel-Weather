@@ -10,7 +10,7 @@
 
 @implementation WeatherViewController
 
-@synthesize objects,message, color;
+@synthesize objects,message, color, objectForecast;
 
 - (id)initWithMessage:(NSString *)theMessage withColor:(UIColor *)theColor
 {
@@ -33,13 +33,36 @@
     //NSLog(@"1 > WeatherViewController.loadView ");
     
 	CGRect	rectFrame = [UIScreen mainScreen].applicationFrame;
-	theView   = [[WeatherView alloc] initWithFrame:rectFrame];
-	theView.backgroundColor = color;
-	theView.myController = self;
-	theView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     
-    [self loadWeather];
-    self.view = theView;
+    if(message == @"Forecast")
+    {
+        if(tableView == nil)
+        {
+            tableView = [[WeatherTable alloc] init];
+            
+            tableView.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame style:UITableViewStylePlain];
+        }
+        
+        tableView.tableView.backgroundColor = color;
+        tableView.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        
+        [self loadWeatherForecast];
+        self.view = tableView.tableView;
+        //[self.view addSubview:tableView.tableView];
+        
+    }
+    else
+    {
+        theView   = [[WeatherView alloc] initWithFrame:rectFrame];
+        theView.backgroundColor = color;
+        theView.myController = self;
+        theView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        [self loadWeather];
+        self.view = theView;
+    }
+    
+    
+    
 }
 
 -(void) loadWeather
@@ -52,13 +75,13 @@
     theView.currentTempLabel.backgroundColor = theView.backgroundColor;
     theView.currentTempLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:80];
     
-    theView.timeStamp = [[UILabel alloc] initWithFrame:CGRectMake(110 , 8, 220, 20)];
+    theView.timeStamp = [[UILabel alloc] initWithFrame:CGRectMake(120 , 8, 220, 20)];
     theView.timeStamp.text = @"";
     theView.timeStamp.textColor = [UIColor blackColor];
     theView.timeStamp.backgroundColor = theView.backgroundColor;
     theView.timeStamp.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
     
-    theView.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(110 , 28, 220, 20)];
+    theView.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(120 , 28, 220, 20)];
     theView.cityLabel.text = @"[...]";
     theView.cityLabel.textColor = [UIColor blackColor];
     theView.cityLabel.backgroundColor = theView.backgroundColor;
@@ -85,23 +108,75 @@
     
 }
 
+-(void) loadWeatherForecast
+{
+    
+    // Do this in the background so we don't lock up the UI.
+    [self performSelectorInBackground:@selector(showWeatherForecast:) withObject:@"Toronto"];
+    
+    
+}
+
+
 // This will run in the background
 - (void)showWeatherFor:(NSString *)query
 {
     
     //WeatherParser *weather = [[WeatherParser alloc] initWithQuery:query];
-    WeatherParser *weather = [[WeatherParser alloc] fullParseWithQuery:query];
+    WeatherParser *weather = [[WeatherParser alloc] fullParseWithQuery:query path:@"/response/current_observation"];
     
     objects = weather.object;
     
-    [objects enumerateKeysAndObjectsUsingBlock:^(id key,id objec, BOOL *stop)
-     {
-         NSLog(@"%@ = %@", key, objec);
-     }];
+    //WeatherParser *weatherForecast = [[WeatherParser alloc] parseWithQuery:query path:@"/response/forecast/simpleforecast/forecastdays/forecastday/date"];
+    
+    //objects = weather.object;
+    
+    //objectForecast = weatherForecast.object;
+    
+    
+    
+    //[objectForecast enumerateKeysAndObjectsUsingBlock:^(id key,id objec, BOOL *stop)
+     //{
+     //    NSLog(@"%@ = %@", key, objec);
+     //}];
     
     [self performSelectorOnMainThread:@selector(updateUI:) withObject:weather waitUntilDone:NO];
     
 
+    
+}
+
+
+// This will run in the background
+- (void)showWeatherForecast:(NSString *)query
+{
+    
+    //WeatherParser *weather = [[WeatherParser alloc] initWithQuery:query];
+    WeatherParser *weather = [[WeatherParser alloc] fullParseWithQuery:query path:@"/response/current_observation"];
+
+    [self performSelectorOnMainThread:@selector(updateUIForecast:) withObject:weather waitUntilDone:NO];
+    
+    
+    
+}
+
+// This happens in the main thread
+- (void)updateUIForecast:(WeatherParser *)weather
+{
+
+    
+    for(NSString* strDate in weather.datee)
+    {
+        //NSLog(@"%@",strDate);
+    }
+    
+    
+    tableView.tableData = weather.datee;
+    
+    NSLog(@"%@",[tableView.tableData objectAtIndex:0]);
+    
+    [tableView.tableView reloadData];
+    
     
 }
 
@@ -132,6 +207,10 @@
     //[conditionsLabel setText:weather.condition];
     //[cityLabel setText:weather.location];
     
+    for(NSString* strDate in weather.datee)
+    {
+        //NSLog(@"%@",strDate);
+    }
     
 }
 
