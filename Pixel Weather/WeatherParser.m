@@ -11,7 +11,7 @@
 
 @implementation WeatherParser
 
-@synthesize elementDictionary,objectAttributes,object,currentTemp, condition, conditionImageURL, location, lowTemp, highTemp, datee, qpf, snow, high, low, cond, wind;
+@synthesize elementDictionary,objectAttributes,object,currentTemp, condition, conditionImageURL, location, lowTemp, highTemp, weekday,datee, qpf, snow, high, low, cond, wind;
 
 - (WeatherParser *)initWithQuery:(NSString *)query
 {
@@ -47,19 +47,18 @@
         {
             NSString *dateCombo;
             
-            NSArray *weekday = [node elementsForName:@"weekday"];
-            for (CXMLElement *idd in weekday)
+            NSArray *weekdayy = [node elementsForName:@"weekday"];
+            for (CXMLElement *idd in weekdayy)
             {
-                dateCombo = idd.stringValue;
+                [self.weekday  addObject:idd.stringValue];
                 break;
             }
             
-            dateCombo = [dateCombo stringByAppendingString:@" ("];
             
             NSArray *month = [node elementsForName:@"month"];
             for (CXMLElement *idd in month)
             {
-                dateCombo = [dateCombo stringByAppendingString:idd.stringValue];
+                dateCombo = idd.stringValue;
                 break;
             }
             
@@ -81,13 +80,75 @@
                 break;
             }
             
-            dateCombo = [dateCombo stringByAppendingString:@")"];
-            
             //NSLog(dateCombo);
             [self.datee  addObject:dateCombo];
             
             
         }
+    
+        NSArray *node2 = [parser nodesForXPath:@"/response/forecast/simpleforecast/forecastdays/forecastday" error:nil];
+    
+        for (CXMLElement *node in node2)
+        {
+
+            NSArray *hi = [node elementsForName:@"high"];
+            for (CXMLElement *idd in hi)
+            {
+                NSArray *hiC = [idd elementsForName:@"celsius"];
+                for (CXMLElement *iddd in hiC)
+                {
+                    [self.high  addObject:iddd.stringValue];
+                    //NSLog(@"High C >> %@",iddd.stringValue);
+                    break;
+                }
+            }
+            
+            NSArray *loww = [node elementsForName:@"low"];
+            for (CXMLElement *idd in loww)
+            {
+                NSArray *lowC = [idd elementsForName:@"celsius"];
+                for (CXMLElement *iddd in lowC)
+                {
+                    [self.low  addObject:iddd.stringValue];
+                    //NSLog(@"High C >> %@",iddd.stringValue);
+                    break;
+                }
+            }
+            
+            NSArray *rain = [node elementsForName:@"qpf_allday"];
+            for (CXMLElement *idd in rain)
+            {
+                NSArray *hiC = [idd elementsForName:@"mm"];
+                for (CXMLElement *iddd in hiC)
+                {
+                    [self.qpf  addObject:iddd.stringValue];
+                    //NSLog(@"rain >> %@",iddd.stringValue);
+                    break;
+                }
+            }
+            
+            NSArray *snoww = [node elementsForName:@"snow_allday"];
+            for (CXMLElement *idd in snoww)
+            {
+                NSArray *lowC = [idd elementsForName:@"cm"];
+                for (CXMLElement *iddd in lowC)
+                {
+                    [self.snow  addObject:iddd.stringValue];
+                    //NSLog(@"snow >> %@",iddd.stringValue);
+                    break;
+                }
+            }
+
+            
+            NSArray *condd = [node elementsForName:@"conditions"];
+            for (CXMLElement *idd in condd)
+            {
+                [self.cond  addObject:idd.stringValue];
+                break;
+            }
+        
+        }
+
         
     
 
@@ -97,7 +158,7 @@
 {
     if (self == [super init])
     {
-        
+        weekday =[[NSMutableArray alloc] init];
         datee =[[NSMutableArray alloc] init];
         qpf =[[NSMutableArray alloc] init];
         snow =[[NSMutableArray alloc] init];

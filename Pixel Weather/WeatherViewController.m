@@ -45,6 +45,8 @@
         
         tableView.tableView.backgroundColor = color;
         tableView.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        tableView.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        tableView.tableView.separatorColor = [UIColor redColor];
         
         [self loadWeatherForecast];
         self.view = tableView.tableView;
@@ -172,8 +174,14 @@
     
     
     tableView.tableData = weather.datee;
+    tableView.weekdayData = weather.weekday;
+    tableView.highData = weather.high;
+    tableView.lowData = weather.low;
+    tableView.conditionData = weather.cond;
+    tableView.rainData = weather.qpf;
+    tableView.snowData = weather.snow;
     
-    NSLog(@"%@",[tableView.tableData objectAtIndex:0]);
+    //NSLog(@"%@",[tableView.tableData objectAtIndex:0]);
     
     [tableView.tableView reloadData];
     
