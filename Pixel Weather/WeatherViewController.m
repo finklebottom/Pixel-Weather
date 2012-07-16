@@ -60,6 +60,21 @@
         theView.myController = self;
         theView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         [self loadWeather];
+        
+        if(hourlyTable == nil)
+        {
+            hourlyTable = [[HourlyTableViewController alloc] init];
+            
+            hourlyTable.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, 320, 360) style:UITableViewStylePlain];
+        }
+        
+        hourlyTable.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        hourlyTable.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        hourlyTable.tableView.separatorColor = [UIColor redColor];
+        hourlyTable.tableView.backgroundColor = [UIColor clearColor];
+        
+        [theView addSubview:hourlyTable.tableView];
+        
         self.view = theView;
     }
     
@@ -77,23 +92,26 @@
     theView.currentTempLabel.backgroundColor = theView.backgroundColor;
     theView.currentTempLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:80];
     
-    theView.timeStamp = [[UILabel alloc] initWithFrame:CGRectMake(120 , 8, 220, 20)];
+    theView.timeStamp = [[UILabel alloc] initWithFrame:CGRectMake(120 , 8, 200, 20)];
     theView.timeStamp.text = @"";
     theView.timeStamp.textColor = [UIColor blackColor];
     theView.timeStamp.backgroundColor = theView.backgroundColor;
     theView.timeStamp.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
+    theView.timeStamp.textAlignment = NSTextAlignmentCenter;
     
-    theView.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(120 , 28, 220, 20)];
+    theView.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(120 , 28, 200, 20)];
     theView.cityLabel.text = @"[...]";
     theView.cityLabel.textColor = [UIColor blackColor];
     theView.cityLabel.backgroundColor = theView.backgroundColor;
     theView.cityLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
+    theView.cityLabel.textAlignment = NSTextAlignmentCenter;
     
-    theView.conditionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 , 50, 320, 20)];
+    theView.conditionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(5 , 50, 100, 25)];
     theView.conditionsLabel.text = @"[...]";
     theView.conditionsLabel.textColor = [UIColor blackColor];
     theView.conditionsLabel.backgroundColor = theView.backgroundColor;
     theView.conditionsLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
+    theView.conditionsLabel.textAlignment = NSTextAlignmentCenter;
     
     [theView addSubview:theView.currentTempLabel];
     [theView addSubview:theView.cityLabel];
@@ -105,7 +123,7 @@
                                    selector:@selector(handleTimer_1:) userInfo:nil repeats:YES];
     
     // Do this in the background so we don't lock up the UI.
-    [self performSelectorInBackground:@selector(showWeatherFor:) withObject:@"Toronto"];
+    [self performSelectorInBackground:@selector(showWeatherFor:) withObject:@"Canada/Toronto"];
     
     
 }
@@ -114,7 +132,7 @@
 {
     
     // Do this in the background so we don't lock up the UI.
-    [self performSelectorInBackground:@selector(showWeatherForecast:) withObject:@"Toronto"];
+    [self performSelectorInBackground:@selector(showWeatherForecast:) withObject:@"Canada/Toronto"];
     
     
 }
@@ -219,6 +237,15 @@
     {
         //NSLog(@"%@",strDate);
     }
+    
+    hourlyTable.timeData = weather.hourlyTime;
+    hourlyTable.tempData = weather.hourlyTemp;
+    hourlyTable.conditionData = weather.hourlyCondition;
+    hourlyTable.rainData = weather.hourlyRain;
+    
+    //NSLog(@"%@",[tableView.tableData objectAtIndex:0]);
+    
+    [hourlyTable.tableView reloadData];
     
 }
 

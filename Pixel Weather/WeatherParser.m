@@ -11,7 +11,7 @@
 
 @implementation WeatherParser
 
-@synthesize elementDictionary,objectAttributes,object,currentTemp, condition, conditionImageURL, location, lowTemp, highTemp, weekday,datee, qpf, snow, high, low, cond, wind;
+@synthesize elementDictionary,objectAttributes,object,currentTemp, condition, conditionImageURL, location, lowTemp, highTemp, weekday,datee, qpf, snow, high, low, cond, wind, hourlyCondition, hourlyRain, hourlyTemp, hourlyTime, hourlySnow;
 
 - (WeatherParser *)initWithQuery:(NSString *)query
 {
@@ -19,12 +19,12 @@
     {
 
         
-        CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/q/Canada/%@.xml", query]] options:0 error:nil];
+        //CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/hourly/q/%@.xml", query]] options:0 error:nil];
         
-        currentTemp         = [[[parser nodesForXPath:@"/response/current_observation/temp_c" error:nil] objectAtIndex:0] stringValue];
+        //currentTemp         = [[[parser nodesForXPath:@"/response/current_observation/temp_c" error:nil] objectAtIndex:0] stringValue];
         
         
-        location          = [[[parser nodesForXPath:@"/response/current_observation/display_location/full" error:nil] objectAtIndex:0] stringValue];
+        //location          = [[[parser nodesForXPath:@"/response/current_observation/display_location/full" error:nil] objectAtIndex:0] stringValue];
         
         //currentTemp       = [[[[[parser nodesForXPath:@"/xml_api_reply/weather/current_conditions/temp_f" error:nil] objectAtIndex:0] attributeForName:@"data"] stringValue] integerValue];
         //lowTemp           = [[[[[parser nodesForXPath:@"/xml_api_reply/weather/forecast_conditions/low" error:nil] objectAtIndex:0] attributeForName:@"data"] stringValue] integerValue];
@@ -39,7 +39,7 @@
 - (void)parseWithQuery:(NSString *)query
 {
     
-        CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/q/Canada/%@.xml", query]] options:0 error:nil];
+        CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/9e43e9d86f5fb05c/geolookup/conditions/forecast/q/%@.xml", query]] options:0 error:nil];
         
         NSArray *nodes = [parser nodesForXPath:@"/response/forecast/simpleforecast/forecastdays/forecastday/date" error:nil];
         
@@ -166,11 +166,17 @@
         low =[[NSMutableArray alloc] init];
         cond =[[NSMutableArray alloc] init];
         wind =[[NSMutableArray alloc] init];
+        
+        hourlyRain =[[NSMutableArray alloc] init];
+        hourlyTime =[[NSMutableArray alloc] init];
+        hourlyTemp =[[NSMutableArray alloc] init];
+        hourlyCondition =[[NSMutableArray alloc] init];
+        
 
     
         NSMutableArray *ar=[[NSMutableArray alloc] init];
     
-        CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/166b5c4e39c974f4/geolookup/conditions/forecast/q/Canada/%@.xml", query]] options:0 error:nil];
+        CXMLDocument *parser = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.wunderground.com/api/9e43e9d86f5fb05c/geolookup/conditions/forecast/hourly/q/%@.xml", query]] options:0 error:nil];
         
         NSArray *nodes = nil;
         nodes = [parser nodesForXPath:nodePath error:nil];
@@ -262,6 +268,75 @@
         
         }
         
+        
+        NSArray *node2 = [parser nodesForXPath:@"/response/hourly_forecast/forecast" error:nil];
+        
+        for (CXMLElement *node in node2)
+        {
+            
+            NSArray *timee = [node elementsForName:@"FCTTIME"];
+            for (CXMLElement *idd in timee)
+            {
+                NSArray *hourr = [idd elementsForName:@"civil"];
+                for (CXMLElement *iddd in hourr)
+                {
+                    [self.hourlyTime  addObject:iddd.stringValue];
+                    break;
+                }
+            }
+            
+            NSArray *tempp = [node elementsForName:@"temp"];
+            for (CXMLElement *idd in tempp)
+            {
+                NSArray *metricc = [idd elementsForName:@"metric"];
+                for (CXMLElement *iddd in metricc)
+                {
+                    [self.hourlyTemp  addObject:iddd.stringValue];
+                    break;
+                }
+            }
+            
+            NSArray *conditionn = [node elementsForName:@"condition"];
+            for (CXMLElement *idd in conditionn)
+            {
+                [self.hourlyCondition  addObject:idd.stringValue];
+                break;
+                
+            }
+            
+            NSString *wett = @"";
+            
+            NSArray *rainn = [node elementsForName:@"qpf"];
+            for (CXMLElement *idd in rainn)
+            {
+                NSArray *metricc = [idd elementsForName:@"metric"];
+                for (CXMLElement *iddd in metricc)
+                {
+                    wett = (iddd.stringValue != nil ? iddd.stringValue : @"0");
+                    break;
+                }
+            }
+            
+            wett = [wett stringByAppendingString:@"mm"];
+            [self.hourlyRain  addObject:wett];
+            
+            NSArray *snoww = [node elementsForName:@"snow"];
+            for (CXMLElement *idd in snoww)
+            {
+                NSArray *metricc = [idd elementsForName:@"metric"];
+                for (CXMLElement *iddd in metricc)
+                {
+                    wett = (iddd.stringValue != nil ? iddd.stringValue : @"0");
+                    break;
+                }
+            }
+            
+            wett = [wett stringByAppendingString:@"cm"];
+            [self.hourlySnow  addObject:wett];
+            
+            
+            
+        }
         
     
     }

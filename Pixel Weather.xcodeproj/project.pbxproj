@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D03082B15B3B633009BE0B8 /* HourlyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03082A15B3B632009BE0B8 /* HourlyTableViewController.m */; };
+		2D03082F15B3B816009BE0B8 /* HourlyTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D03082E15B3B816009BE0B8 /* HourlyTableCell.m */; };
 		2D04B24815901396006A1114 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D04B24715901396006A1114 /* CFNetwork.framework */; };
 		2D04B253159016A5006A1114 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D04B252159016A5006A1114 /* SystemConfiguration.framework */; };
 		2D04B25B15902359006A1114 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D04B25A15902359006A1114 /* CoreLocation.framework */; };
 		2D04B25E15902397006A1114 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D04B25D15902397006A1114 /* LocationHandler.m */; };
+		2D1F1E8215B33CC60008135A /* HourlyTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F1E8115B33CC60008135A /* HourlyTableCell.xib */; };
 		2D28C65F15965619007CBDD3 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28C64415965619007CBDD3 /* CXMLDocument_CreationExtensions.m */; };
 		2D28C66015965619007CBDD3 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28C64615965619007CBDD3 /* CXMLNode_CreationExtensions.m */; };
 		2D28C66115965619007CBDD3 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D28C64815965619007CBDD3 /* CXHTMLDocument.m */; };
@@ -61,11 +64,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D03082915B3B632009BE0B8 /* HourlyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyTableViewController.h; sourceTree = "<group>"; };
+		2D03082A15B3B632009BE0B8 /* HourlyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyTableViewController.m; sourceTree = "<group>"; };
+		2D03082D15B3B816009BE0B8 /* HourlyTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyTableCell.h; sourceTree = "<group>"; };
+		2D03082E15B3B816009BE0B8 /* HourlyTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyTableCell.m; sourceTree = "<group>"; };
 		2D04B24715901396006A1114 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFNetwork.framework; sourceTree = "<group>"; };
 		2D04B252159016A5006A1114 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D04B25A15902359006A1114 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2D04B25C15902397006A1114 /* LocationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationHandler.h; sourceTree = "<group>"; };
 		2D04B25D15902397006A1114 /* LocationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
+		2D1F1E8115B33CC60008135A /* HourlyTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourlyTableCell.xib; sourceTree = "<group>"; };
 		2D28C64315965619007CBDD3 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		2D28C64415965619007CBDD3 /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
 		2D28C64515965619007CBDD3 /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
@@ -302,6 +310,11 @@
 				2D8F064B15AF8BA300EA3FCA /* WeatherTableCell.xib */,
 				2D8F064E15AF8E0D00EA3FCA /* WeatherTableCell.h */,
 				2D8F064F15AF8E0D00EA3FCA /* WeatherTableCell.m */,
+				2D03082915B3B632009BE0B8 /* HourlyTableViewController.h */,
+				2D03082A15B3B632009BE0B8 /* HourlyTableViewController.m */,
+				2D1F1E8115B33CC60008135A /* HourlyTableCell.xib */,
+				2D03082D15B3B816009BE0B8 /* HourlyTableCell.h */,
+				2D03082E15B3B816009BE0B8 /* HourlyTableCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -400,6 +413,7 @@
 				2D793DA1158E4C6D001A1ADB /* InfoPlist.strings in Resources */,
 				2D9BB23B158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */,
 				2D8F064C15AF8BA300EA3FCA /* WeatherTableCell.xib in Resources */,
+				2D1F1E8215B33CC60008135A /* HourlyTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +473,8 @@
 				2D28C67415966BF7007CBDD3 /* WeatherParser.m in Sources */,
 				2D9807D315AE8BE500A99DDE /* WeatherTable.m in Sources */,
 				2D8F065015AF8E0D00EA3FCA /* WeatherTableCell.m in Sources */,
+				2D03082B15B3B633009BE0B8 /* HourlyTableViewController.m in Sources */,
+				2D03082F15B3B816009BE0B8 /* HourlyTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

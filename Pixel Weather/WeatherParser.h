@@ -16,12 +16,14 @@
     NSMutableDictionary *elementDictionary,*objectAttributes,*object;
     
     NSMutableArray *weekday,*datee, *qpf, *snow, *high, *low, *cond, *wind;
+    NSMutableArray *hourlyTime, *hourlyTemp, *hourlyCondition, *hourlyRain, *hourlySnow;
 }
 
 @property (nonatomic,retain) NSString *condition, *location, *currentTemp, *lowTemp, *highTemp;
 @property (nonatomic,retain) NSURL *conditionImageURL;
 @property (nonatomic,retain) NSMutableDictionary *elementDictionary,*objectAttributes,*object;
 @property (nonatomic,retain) NSMutableArray *weekday,*datee, *qpf, *snow, *high, *low, *cond, *wind;
+@property (nonatomic,retain) NSMutableArray *hourlyTime, *hourlyTemp, *hourlyCondition, *hourlyRain, *hourlySnow;
 
 - (WeatherParser *)initWithQuery:(NSString *)query;
 - (WeatherParser *)fullParseWithQuery:(NSString *)query path:(NSString *)nodePath;

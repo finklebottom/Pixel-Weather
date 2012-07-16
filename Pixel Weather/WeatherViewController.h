@@ -10,14 +10,17 @@
 #import "WeatherView.h"
 #import "WeatherTable.h"
 #import "WeatherParser.h"
+#import "HourlyTableViewController.h"
 
 @class WeatherView;
 @class WeatherTable;
+@class HourlyTableViewController;
 
 @interface WeatherViewController : UIViewController
 {
     WeatherView *theView;
     WeatherTable *tableView;
+    HourlyTableViewController *hourlyTable;
     
 	NSString    *message;
     UIColor     *color;
