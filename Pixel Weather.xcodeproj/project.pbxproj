@@ -50,6 +50,13 @@
 		2D9807D315AE8BE500A99DDE /* WeatherTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9807D215AE8BE400A99DDE /* WeatherTable.m */; };
 		2D9BB23B158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */; };
 		2D9BB23C158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */; };
+		2D9CCDC4161A4B1D000ED4B3 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDBD161A4B1D000ED4B3 /* cat.png */; };
+		2D9CCDC5161A4B1D000ED4B3 /* PixelWeather_atmo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDBE161A4B1D000ED4B3 /* PixelWeather_atmo.png */; };
+		2D9CCDC6161A4B1D000ED4B3 /* PixelWeather_city.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDBF161A4B1D000ED4B3 /* PixelWeather_city.png */; };
+		2D9CCDC7161A4B1D000ED4B3 /* sun1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDC0161A4B1D000ED4B3 /* sun1.png */; };
+		2D9CCDC8161A4B1D000ED4B3 /* sun2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDC1161A4B1D000ED4B3 /* sun2.png */; };
+		2D9CCDC9161A4B1D000ED4B3 /* sun3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDC2161A4B1D000ED4B3 /* sun3.png */; };
+		2D9CCDCA161A4B1D000ED4B3 /* Toronto.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D9CCDC3161A4B1D000ED4B3 /* Toronto.png */; };
 		2DF95DF0158E660C0067C439 /* PixelWeatherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +140,13 @@
 		2D9807D115AE8BE400A99DDE /* WeatherTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTable.h; sourceTree = "<group>"; };
 		2D9807D215AE8BE400A99DDE /* WeatherTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTable.m; sourceTree = "<group>"; };
 		2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alterebro-pixel-font.ttf"; sourceTree = "<group>"; };
+		2D9CCDBD161A4B1D000ED4B3 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
+		2D9CCDBE161A4B1D000ED4B3 /* PixelWeather_atmo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PixelWeather_atmo.png; sourceTree = "<group>"; };
+		2D9CCDBF161A4B1D000ED4B3 /* PixelWeather_city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PixelWeather_city.png; sourceTree = "<group>"; };
+		2D9CCDC0161A4B1D000ED4B3 /* sun1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun1.png; sourceTree = "<group>"; };
+		2D9CCDC1161A4B1D000ED4B3 /* sun2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun2.png; sourceTree = "<group>"; };
+		2D9CCDC2161A4B1D000ED4B3 /* sun3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun3.png; sourceTree = "<group>"; };
+		2D9CCDC3161A4B1D000ED4B3 /* Toronto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Toronto.png; sourceTree = "<group>"; };
 		2DF95DEE158E660C0067C439 /* PixelWeatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelWeatherAppDelegate.h; sourceTree = "<group>"; };
 		2DF95DEF158E660C0067C439 /* PixelWeatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelWeatherAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +267,7 @@
 		2D793D9C158E4C6D001A1ADB /* Pixel Weather */ = {
 			isa = PBXGroup;
 			children = (
+				2D9CCDBB161A4AEA000ED4B3 /* Images */,
 				2D9807CC15AE222000A99DDE /* UI */,
 				2D9BB23A158E716D002E6694 /* alterebro-pixel-font.ttf */,
 				2D9807CF15AE227500A99DDE /* Device */,
@@ -339,6 +354,20 @@
 			name = Parser;
 			sourceTree = "<group>";
 		};
+		2D9CCDBB161A4AEA000ED4B3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2D9CCDBD161A4B1D000ED4B3 /* cat.png */,
+				2D9CCDBE161A4B1D000ED4B3 /* PixelWeather_atmo.png */,
+				2D9CCDBF161A4B1D000ED4B3 /* PixelWeather_city.png */,
+				2D9CCDC0161A4B1D000ED4B3 /* sun1.png */,
+				2D9CCDC1161A4B1D000ED4B3 /* sun2.png */,
+				2D9CCDC2161A4B1D000ED4B3 /* sun3.png */,
+				2D9CCDC3161A4B1D000ED4B3 /* Toronto.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -414,6 +443,13 @@
 				2D9BB23B158E716D002E6694 /* alterebro-pixel-font.ttf in Resources */,
 				2D8F064C15AF8BA300EA3FCA /* WeatherTableCell.xib in Resources */,
 				2D1F1E8215B33CC60008135A /* HourlyTableCell.xib in Resources */,
+				2D9CCDC4161A4B1D000ED4B3 /* cat.png in Resources */,
+				2D9CCDC5161A4B1D000ED4B3 /* PixelWeather_atmo.png in Resources */,
+				2D9CCDC6161A4B1D000ED4B3 /* PixelWeather_city.png in Resources */,
+				2D9CCDC7161A4B1D000ED4B3 /* sun1.png in Resources */,
+				2D9CCDC8161A4B1D000ED4B3 /* sun2.png in Resources */,
+				2D9CCDC9161A4B1D000ED4B3 /* sun3.png in Resources */,
+				2D9CCDCA161A4B1D000ED4B3 /* Toronto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

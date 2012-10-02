@@ -270,18 +270,37 @@
 - (void) loadNextView
 {
     viewController1 = [[WeatherViewController alloc] initWithMessage:@"Current"
-                                                           withColor:[UIColor colorWithRed:135.0/255 green:206.0/255 blue:250.0/255 alpha:1.0]];
+                                                           withColor:[UIColor blackColor]];
 	viewController1.title =  @"Current";
+    
+    
+    viewController2 = [[WeatherViewController alloc] initWithMessage:@"Hourly"
+                                                           withColor:[UIColor yellowColor]];
+	viewController2.title =  @"Hourly";
+
     
 	viewController3 = [[WeatherViewController alloc] initWithMessage:@"Forecast"
                                                            withColor:[UIColor yellowColor]];
 	viewController3.title =  @"Forecast";
+    
 	tabHome = [[UITabBarController alloc] init];
 	tabHome.viewControllers = [NSArray arrayWithObjects:
 										viewController1,
+                                        viewController2,
 										viewController3,
 										nil];
-	[window addSubview:tabHome.view];	
+    
+    for(UIViewController *tab in tabHome.viewControllers)
+    {
+        [tab.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                [UIFont fontWithName:@"Alterebro Pixel Font"  size:50.0], UITextAttributeFont,
+                [UIColor greenColor],UITextAttributeTextColor,
+                nil]
+                forState:UIControlStateNormal];
+        
+    }
+    
+	[window addSubview:tabHome.view];
 	[window makeKeyAndVisible];
 
     

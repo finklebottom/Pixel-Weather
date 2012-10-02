@@ -36,22 +36,61 @@
     
     if(message == @"Forecast")
     {
-        if(tableView == nil)
-        {
-            tableView = [[WeatherTable alloc] init];
-            
-            tableView.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame style:UITableViewStylePlain];
-        }
-        
-        tableView.tableView.backgroundColor = color;
-        tableView.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-        tableView.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        tableView.tableView.separatorColor = [UIColor redColor];
+        forecastView   = [[WeatherView alloc] initWithFrame:rectFrame];
+        forecastView.backgroundColor = color;
+        forecastView.myController = self;
+        forecastView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         
         [self loadWeatherForecast];
-        self.view = tableView.tableView;
+        
+        if(weatherTableView == nil)
+        {
+            weatherTableView = [[WeatherTable alloc] init];
+            
+            weatherTableView.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame style:UITableViewStylePlain];
+        }
+        
+        weatherTableView.tableView.backgroundColor = color;
+        weatherTableView.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        weatherTableView.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        weatherTableView.tableView.separatorColor = [UIColor redColor];
+        
+        //
+        
+        //self.view = weatherTableView.tableView;
         //[self.view addSubview:tableView.tableView];
         
+        [forecastView addSubview:weatherTableView.tableView];
+        
+        self.view = forecastView;
+        
+    }
+    else if(message == @"Hourly")
+    {
+        hourlyView   = [[WeatherView alloc] initWithFrame:rectFrame];
+        hourlyView.backgroundColor = color;
+        hourlyView.myController = self;
+        hourlyView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        
+        [self loadWeatherHourly];
+        
+        if(hourlyTable == nil)
+        {
+            hourlyTable = [[HourlyTableViewController alloc] init];
+            
+            hourlyTable.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, 320, 460) style:UITableViewStylePlain];
+        }
+        
+        hourlyTable.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        hourlyTable.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        hourlyTable.tableView.separatorColor = [UIColor redColor];
+        hourlyTable.tableView.backgroundColor = [UIColor clearColor];
+        
+       
+        
+        [hourlyView addSubview:hourlyTable.tableView];
+        
+        self.view = hourlyView;
     }
     else
     {
@@ -60,20 +99,6 @@
         theView.myController = self;
         theView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         [self loadWeather];
-        
-        if(hourlyTable == nil)
-        {
-            hourlyTable = [[HourlyTableViewController alloc] init];
-            
-            hourlyTable.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, 320, 360) style:UITableViewStylePlain];
-        }
-        
-        hourlyTable.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        hourlyTable.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        hourlyTable.tableView.separatorColor = [UIColor redColor];
-        hourlyTable.tableView.backgroundColor = [UIColor clearColor];
-        
-        [theView addSubview:hourlyTable.tableView];
         
         self.view = theView;
     }
@@ -86,32 +111,101 @@
 {
     //NSLog(@"2 > WeatherView.loadView ");
     
-    theView.currentTempLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 , 0, 100, 50)];
+    theView.currentTempLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 , 0, 140, 60)];
     theView.currentTempLabel.text = @"[...]°C";
-    theView.currentTempLabel.textColor = [UIColor blackColor];
+    theView.currentTempLabel.textColor = [UIColor  greenColor];
     theView.currentTempLabel.backgroundColor = theView.backgroundColor;
-    theView.currentTempLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:80];
+    theView.currentTempLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:100];
     
-    theView.timeStamp = [[UILabel alloc] initWithFrame:CGRectMake(120 , 8, 200, 20)];
+    theView.timeStamp = [[UILabel alloc] initWithFrame:CGRectMake(140 , 10, 180, 20)];
     theView.timeStamp.text = @"";
-    theView.timeStamp.textColor = [UIColor blackColor];
+    theView.timeStamp.textColor = [UIColor  greenColor];
     theView.timeStamp.backgroundColor = theView.backgroundColor;
     theView.timeStamp.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
-    theView.timeStamp.textAlignment = NSTextAlignmentCenter;
+    theView.timeStamp.textAlignment = NSTextAlignmentRight;
     
-    theView.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(120 , 28, 200, 20)];
+    theView.cityLabel = [[UILabel alloc] initWithFrame:CGRectMake(140 , 30, 180, 20)];
     theView.cityLabel.text = @"[...]";
-    theView.cityLabel.textColor = [UIColor blackColor];
+    theView.cityLabel.textColor = [UIColor  greenColor];
     theView.cityLabel.backgroundColor = theView.backgroundColor;
     theView.cityLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
-    theView.cityLabel.textAlignment = NSTextAlignmentCenter;
+    theView.cityLabel.textAlignment = NSTextAlignmentRight;
     
-    theView.conditionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(5 , 50, 100, 25)];
+    theView.conditionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0 , 60, 150, 25)];
     theView.conditionsLabel.text = @"[...]";
-    theView.conditionsLabel.textColor = [UIColor blackColor];
+    theView.conditionsLabel.textColor = [UIColor  greenColor];
     theView.conditionsLabel.backgroundColor = theView.backgroundColor;
     theView.conditionsLabel.font = [UIFont fontWithName:@"Alterebro Pixel Font" size:30];
     theView.conditionsLabel.textAlignment = NSTextAlignmentCenter;
+    
+    //sky view ... set color
+    UIColor *skyColor = [UIColor colorWithRed:100.0f/255.0f green:149.0f/255.0f blue:237.0f/255.0f alpha:1.0f];
+
+    
+    UIView *sky = [[UIView alloc] initWithFrame:CGRectMake(0, 150, 320, 320)];
+    sky.backgroundColor  = skyColor;
+    sky.alpha = 1.0f;
+    [theView addSubview:sky];
+    
+    sky = [[UIView alloc] initWithFrame:CGRectMake(0, 90, 320, 10)];
+    sky.backgroundColor  = skyColor;
+    sky.alpha = 0.1f;
+    [theView addSubview:sky];
+   
+    
+    sky = [[UIView alloc] initWithFrame:CGRectMake(0, 90, 320, 10)];
+    sky.backgroundColor  = skyColor;
+    sky.alpha = 0.2f;
+    [theView addSubview:sky];
+    
+    
+    sky = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 320, 15)];
+    sky.backgroundColor  = skyColor;
+    sky.alpha = 0.5f;
+    [theView addSubview:sky];
+    
+    sky = [[UIView alloc] initWithFrame:CGRectMake(0, 115, 320, 15)];
+    sky.backgroundColor  = skyColor;
+    sky.alpha = 0.6f;
+    [theView addSubview:sky];
+    
+    sky = [[UIView alloc] initWithFrame:CGRectMake(0, 130, 320, 20)];
+    sky.backgroundColor  = skyColor;
+    sky.alpha = 0.9f;
+    [theView addSubview:sky];
+    
+
+    
+    
+    //atmosphere image
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 320, 50)];
+    NSString *imgFilepath = [[NSBundle mainBundle] pathForResource:@"PixelWeather_atmo" ofType:@"png"];
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:imgFilepath];
+    //[imgView setImage:img];
+    //[theView addSubview:imgView];
+    
+    //cat image
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 280, 191, 175)];
+    imgFilepath = [[NSBundle mainBundle] pathForResource:@"cat" ofType:@"png"];
+    img = [[UIImage alloc] initWithContentsOfFile:imgFilepath];
+    [imgView setImage:img];
+    [theView addSubview:imgView];
+    
+    //sun image
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(210, 140, 161, 146)];
+    imgFilepath = [[NSBundle mainBundle] pathForResource:@"sun1" ofType:@"png"];
+    img = [[UIImage alloc] initWithContentsOfFile:imgFilepath];
+    [imgView setImage:img];
+    [theView addSubview:imgView];
+    
+    //city image
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 160, 320, 255)];
+    imgFilepath = [[NSBundle mainBundle] pathForResource:@"PixelWeather_city" ofType:@"png"];
+    img = [[UIImage alloc] initWithContentsOfFile:imgFilepath];
+    [imgView setImage:img];
+    [theView addSubview:imgView];
+    
+
     
     [theView addSubview:theView.currentTempLabel];
     [theView addSubview:theView.cityLabel];
@@ -133,6 +227,15 @@
     
     // Do this in the background so we don't lock up the UI.
     [self performSelectorInBackground:@selector(showWeatherForecast:) withObject:@"Canada/Toronto"];
+    
+    
+}
+
+-(void) loadWeatherHourly
+{
+    
+    // Do this in the background so we don't lock up the UI.
+    [self performSelectorInBackground:@selector(showWeatherHourly:) withObject:@"Canada/Toronto"];
     
     
 }
@@ -176,9 +279,23 @@
 
     [self performSelectorOnMainThread:@selector(updateUIForecast:) withObject:weather waitUntilDone:NO];
     
+}
+
+
+
+// This will run in the background
+- (void)showWeatherHourly:(NSString *)query
+{
     
+    //WeatherParser *weather = [[WeatherParser alloc] initWithQuery:query];
+    WeatherParser *weather = [[WeatherParser alloc] fullParseWithQuery:query path:@"/response/current_observation"];
+    
+    objects = weather.object;
+    
+    [self performSelectorOnMainThread:@selector(updateUIHourly:) withObject:weather waitUntilDone:NO];
     
 }
+
 
 // This happens in the main thread
 - (void)updateUIForecast:(WeatherParser *)weather
@@ -191,17 +308,17 @@
     }
     
     
-    tableView.tableData = weather.datee;
-    tableView.weekdayData = weather.weekday;
-    tableView.highData = weather.high;
-    tableView.lowData = weather.low;
-    tableView.conditionData = weather.cond;
-    tableView.rainData = weather.qpf;
-    tableView.snowData = weather.snow;
+    weatherTableView.tableData = weather.datee;
+    weatherTableView.weekdayData = weather.weekday;
+    weatherTableView.highData = weather.high;
+    weatherTableView.lowData = weather.low;
+    weatherTableView.conditionData = weather.cond;
+    weatherTableView.rainData = weather.qpf;
+    weatherTableView.snowData = weather.snow;
     
     //NSLog(@"%@",[tableView.tableData objectAtIndex:0]);
     
-    [tableView.tableView reloadData];
+    [weatherTableView.tableView reloadData];
     
     
 }
@@ -210,8 +327,8 @@
 - (void)updateUI:(WeatherParser *)weather
 {
     theView.currentTempLabel.text = [theView.currentTempLabel.text stringByReplacingOccurrencesOfString:@"[...]"
-        withString:[NSString stringWithFormat:@"%@",
-                    [[objects valueForKey:@"temp_c"] objectForKey:@"value"]
+        withString:[NSString stringWithFormat:@"%i",
+                    [[[objects valueForKey:@"temp_c"] objectForKey:@"value"] integerValue] 
                     ]];
     
     //NSDate* currentDate = [NSDate date];
@@ -238,6 +355,13 @@
         //NSLog(@"%@",strDate);
     }
     
+
+    
+}
+
+// This happens in the main thread
+- (void)updateUIHourly:(WeatherParser *)weather
+{
     hourlyTable.timeData = weather.hourlyTime;
     hourlyTable.tempData = weather.hourlyTemp;
     hourlyTable.conditionData = weather.hourlyCondition;
@@ -246,7 +370,6 @@
     //NSLog(@"%@",[tableView.tableData objectAtIndex:0]);
     
     [hourlyTable.tableView reloadData];
-    
 }
 
 - (NSString *)getStringAtLocation:(NSString *)str atPosition:(int) x

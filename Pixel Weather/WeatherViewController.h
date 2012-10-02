@@ -18,9 +18,10 @@
 
 @interface WeatherViewController : UIViewController
 {
-    WeatherView *theView;
-    WeatherTable *tableView;
+    WeatherView *theView, *hourlyView, *forecastView;
+    WeatherTable *weatherTableView;
     HourlyTableViewController *hourlyTable;
+    
     
 	NSString    *message;
     UIColor     *color;
@@ -45,6 +46,10 @@
 - (void)showWeatherForecast:(NSString *)query;
 - (void)updateUIForecast:(WeatherParser *)weather;
 - (void) loadWeatherForecast;
+- (void)updateUIHourly:(WeatherParser *)weather;
+- (void)showWeatherHourly:(NSString *)query;
+- (void) loadWeatherHourly;
+
 
 
 
